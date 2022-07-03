@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="oddEven(); return false";>
+        <label for="number">Number</label>
+    <input type="number" placeholder="type a number" id="number"></form>
+    <button type="submit">Send</button>
+    
+    <script>
+        function oddEven(){
+            let number = document.querySelector("#number");
+           if(number%2==0)
+           document.querySelector("#number").innerHTML=`$(number) is even`;
+           else
+           document.querySelector("#number").innerHTML=`$(number) is odd `
+            }
+    </script>
+</body>
+</html>
