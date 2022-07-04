@@ -5,21 +5,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .main{display: flex; flex-direction: column; margin-left: 400px;}
+        h1{text-decoration: underline; font-size: 40px; margin-left: 30px;}
+        h2{text-decoration: underline;}
+        .box{border: 1px solid; text-align: center; font-size: 24px; width: 400px;
+             background-color:burlywood;}
+        input{height: 50px; font-size: 24px; width: 300px;}
+       
+        @media screen and (max-width: 375px)
+        {.box{font-size: 20px; width: 300px;}
+    input{width: 100px; height: 20px; font-size: 20px;}}
+    button{font-size: 24px;width: 100px; background-color:cornflowerblue;}
+    @media screen and (max-width: 768px)
+    {
+        .main{font-size: 20px; margin-left: 200px;}
+    }
+    @media screen and (max-width: 375px)
+    {
+        .main{font-size: 16px; margin-left: 10px;}
+        h1{font-size: 32px;}
+    }
+    </style>
 </head>
 <body>
-    <form onsubmit="oddEven(); return false";>
-        <label for="number">Number</label>
-    <input type="number" placeholder="type a number" id="number"></form>
-    <button type="submit">Send</button>
+
     
+    <div class="main">
+    <h1>MULTI-TASKER</h1>
+    
+<div class="box">
+    <h2>Even Odd Checker</h2>
+    <form onsubmit="check(); return false;">
+        <label for="num">Enter Number</label></br>
+    <input type="number" placeholder="type a number" id="num"></br></br>
+    <button type="submit">Check</button>
+
+<h1 id="result"></h1>
+</div></form>
+</br></br>
+<div class="box">
+<h2>Addition Calculator</h2>
+<form onsubmit="addition(); return false;">
+    <label for="digit1">Enter first number</label></br>
+    <input id="digit1" placeholder="enter num" type="number"></br>
+    <label for="digit2">Enter second number</label></br>
+    <input id="digit2" placeholder="enter num" type="number"></br></br>
+    <button type="submit">Submit</button>
+
+<h1 id="show"></h1></form>
+</div>
+</br></br>
+
+
+
+<div class="box">
+    <h2>Multipication Calculator</h2>
+    <form onsubmit="multiply(); return false;">
+        <label for="first">Enter first number</label></br>
+        <input id="first" placeholder="enter num" type="number"></br>
+        <label for="second">Enter second number</label></br>
+        <input id="second" placeholder="enter num" type="number"></br></br>
+        <button type="submit">Submit</button>
+    
+    <h1 id="Multiple"></h1></form>
+</div></br>
+
+
+
+<div class="box">
+    <h2>Division Calculator</h2>
+    <form onsubmit="division(); return false;">
+        <label for="div1">Enter first number</label></br>
+        <input id="div1" placeholder="enter num" type="number"></br>
+        <label for="div2">Enter second number</label></br>
+        <input id="div2" placeholder="enter num" type="number"></br></br>
+        <button type="submit">Submit</button>
+        <h1 id="divide"></h1>
+        </form></div>
+
     <script>
-        function oddEven(){
-            let number = document.querySelector("#number");
-           if(number%2==0)
-           document.querySelector("#number").innerHTML=`$(number) is even`;
-           else
-           document.querySelector("#number").innerHTML=`$(number) is odd `
+        function check(){
+            let Number= document.querySelector("#num").value;
+        
+           if((Number % 2) == 0)
+           {document.querySelector("#result").innerHTML=  Number + " is Even" }
+           else{
+            document.querySelector("#result").innerHTML=  Number + " is Odd"
             }
+           if(Number == ""){
+            document.querySelector("#result").innerHTML=""
+           }
+        }
+
+        function addition()
+        {
+            let digit1=document.querySelector("#digit1").value;
+            let digit2=document.querySelector("#digit2").value;
+            let show = digit1 + digit2;
+            document.querySelector("#show").innerHTML= `Addition is ${show}`;
+
+        }
+        function multiply(){
+            let first=document.querySelector("#first").value;
+            let second=document.querySelector("#second").value;
+            let Multiple = first * second;
+            document.querySelector("#Multiple").innerHTML= `Multipication is ${Multiple}`;
+
+        }
+
+
+        function division(){
+            let div1=document.querySelector("#div1").value;
+            let div2=document.querySelector("#div2").value;
+            let divide = div1 / div2;
+            document.querySelector("#divide").innerHTML= `Division is ${divide}`;
+
+        }
     </script>
 </body>
 </html>
